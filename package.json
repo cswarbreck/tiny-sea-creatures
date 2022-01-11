@@ -1,0 +1,22 @@
+{
+  "name": "tiny-sea-creatures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cswarbreck/tiny-sea-creatures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cswarbreck/tiny-sea-creatures/issues"
+  },
+  "homepage": "https://github.com/cswarbreck/tiny-sea-creatures#readme",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
+}
