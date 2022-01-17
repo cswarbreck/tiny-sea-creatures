@@ -22,4 +22,32 @@ function orderWeight(str) {
         .join(' ');
 }
 exports.orderWeight = orderWeight;
+//Inelegant Solution
+// export function orderWeight(str: string): any {
+//   let obj: {} = {};
+//   if (str) {
+//     str.split(" ").forEach((el: string) => {
+//       let total: number = el
+//         .split("")
+//         .map(Number)
+//         .reduce((a: number, b: number) => {
+//           return a + b;
+//         });
+//       !obj[total] ? (obj[total] = [el]) : obj[total].push(el);
+//     });
+//   }
+//   let orderedObj: {} = {};
+//   Object.keys(obj)
+//     .sort()
+//     .forEach((key: string) => {
+//       orderedObj[key] = obj[key];
+//     });
+//   let finalArr: string[] = [];
+//   Object.keys(orderedObj).forEach((key: string) => {
+//     orderedObj[key].length > 1
+//       ? (finalArr = [...finalArr, ...orderedObj[key].sort()])
+//       : finalArr.push(orderedObj[key][0]);
+//   });
+//   return finalArr.join(" ");
+// }
 console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
