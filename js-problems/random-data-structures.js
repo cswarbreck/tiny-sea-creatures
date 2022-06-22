@@ -49,26 +49,32 @@ function findSequence(target) {
 
 // console.log(findSequence(677));
 
-function findIfEven(number) {
-  if(number % 2 == 0){
-    return `It is!`;
-  } else {
-    return `${number} is not divisible by 2`;
-  }
-}
+// function findIfEven(number) {
+//   if(number % 2 == 0){
+//     return `It is!`;
+//   } else {
+//     return `${number} is not divisible by 2`;
+//   }
+// }
+
+findIfEven = number => number % 2 == 0 ? true : false;
 
 // console.log(findIfEven(17));
 
-function isEven(number) {
-  modulus = Math.abs(number);
-  if(modulus == 0) {
-    return true;
-  } else if(modulus == 1) {
-    return false;
-  } else {
-    return isEven(modulus - 2);
-  }
-}
+// function isEven(number) {
+//   modulus = Math.abs(number);
+//   if(modulus == 0) {
+//     return true;
+//   } else if(modulus == 1) {
+//     return false;
+//   } else {
+//     return isEven(modulus - 2);
+//   }
+// }
+
+isEven = number => Math.abs(number) == 0 ? true : Math.abs(number) == 1 ? false : isEven(Math.abs(number) - 2);
+
+console.log(`Is it even? ${isEven(16)}`);
 
 // console.log(isEven(-2));
 
