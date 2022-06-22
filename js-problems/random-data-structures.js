@@ -179,5 +179,5 @@ function deepEqual(obj1, obj2) {
   }
 }
 
-console.log(deepEqual(obj, obj));
+// console.log(deepEqual(obj, obj));
 
