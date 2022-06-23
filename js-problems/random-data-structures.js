@@ -4,7 +4,7 @@ minimum = (one, two) => {
 
 // console.log(minimum(3,7));
 
-//Recursive Function
+// Basic Recursive Function example (total shit, big of O(N^2))
 
 function factorial(number) {
   if(number <= 1){
@@ -13,6 +13,10 @@ function factorial(number) {
     return number*factorial(number -1);
   }
 }
+
+factorial = number => number <= 1 ? 1 : number*factorial(number -1);
+
+console.log(factorial(11))
 
 // For factorial(3)
 // At the beginning, number = 3
