@@ -191,3 +191,15 @@ function deepEqual(obj1, obj2) {
 
 // console.log(deepEqual(obj, obj));
 
+const arrayToObject = arr => {
+  let myObj = {};
+  for(let i = 0; i < arr.length; i++){
+    myObj[arr[i]] ? myObj[arr[i]]+= 1 : myObj[arr[i]] = 1
+  }
+  return myObj;
+}
+
+let thisArray = ['a', 'b', 'a', 'c', 1, "1", "seventeen"]
+
+console.log(arrayToObject(thisArray))
+
