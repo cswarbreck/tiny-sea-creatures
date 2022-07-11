@@ -18,53 +18,53 @@
 
 //Elegant Solution
 
-// function sumOfParts(num: string): number {
-//     return num.split('').reduce((a, b) => a + +b, 0)
-// } 
+function sumOfParts(num: string): number {
+    return num.split('').reduce((a, b) => a + +b, 0)
+} 
 
-// export function orderWeight(str: any): string {
-//     return str
-//         .split(' ')
-//         .sort((a, b) => sumOfParts(a) - sumOfParts(b) || a > b || -(a < b))
-//         .join(' ');
-// }
+export function orderWeight(str: any): string {
+    return str
+        .split(' ')
+        .sort((a, b) => sumOfParts(a) - sumOfParts(b) || a > b || -(a < b))
+        .join(' ');
+}
 
 //Inelegant Solution
 
-export function orderWeight(str: string): any {
-  let obj: {
-    key: string,
-    value: string
-  }
+// export function orderWeight(str: string): any {
+//   let obj: {
+//     key: string,
+//     value: string
+//   }
 
-  if (str) {
-    str.split(" ").forEach((el: string) => {
-      let total: number = el
-        .split("")
-        .map(Number)
-        .reduce((a: number, b: number) => {
-          return a + b;
-        });
-      !obj[total] ? (obj[total] = [el]) : obj[total].push(el);
-    });
-  }
+//   if (str) {
+//     str.split(" ").forEach((el: string) => {
+//       let total: number = el
+//         .split("")
+//         .map(Number)
+//         .reduce((a: number, b: number) => {
+//           return a + b;
+//         });
+//       !obj[total] ? (obj[total] = [el]) : obj[total].push(el);
+//     });
+//   }
 
-  let orderedObj: {} = {};
-  Object.keys(obj)
-    .sort()
-    .forEach((key: string) => {
-      orderedObj[key] = obj[key];
-    });
+//   let orderedObj: {} = {};
+//   Object.keys(obj)
+//     .sort()
+//     .forEach((key: string) => {
+//       orderedObj[key] = obj[key];
+//     });
 
-  let finalArr: string[] = [];
-  Object.keys(orderedObj).forEach((key: string) => {
-    orderedObj[key].length > 1
-      ? (finalArr = [...finalArr, ...orderedObj[key].sort()])
-      : finalArr.push(orderedObj[key][0]);
-  });
+//   let finalArr: string[] = [];
+//   Object.keys(orderedObj).forEach((key: string) => {
+//     orderedObj[key].length > 1
+//       ? (finalArr = [...finalArr, ...orderedObj[key].sort()])
+//       : finalArr.push(orderedObj[key][0]);
+//   });
 
-  return finalArr.join(" ");
-}
+//   return finalArr.join(" ");
+// }
 
 
 
