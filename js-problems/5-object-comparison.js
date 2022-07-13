@@ -11,7 +11,7 @@
 
 // Adds comments
 
-function cakes(recipe, available) {
+const cakes = (recipe, available) => {
     // Creates Primer
     let needed = Object.keys(recipe);
     let allPresent;
