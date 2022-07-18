@@ -17,44 +17,44 @@ const setupSecrets = () => {
 	return _.shuffle(secrets);
 }
  
-const playOptimal = () => {
+// const playOptimal = () => {
  
-	let secrets = setupSecrets();
- 
- 
-	// Iterate once per prisoner
-	loop1:
-	for (let p = 0; p < 100; p++) {
- 
-		// whether the prisoner succeedss
-		let success = false;
- 
-		// the drawer number the prisoner chose
-		let choice = p;
+// 	let secrets = setupSecrets();
  
  
-		// The prisoner can choose up to 50 cards
-		loop2:
-		for (let i = 0; i < 50; i++) {
+// 	// Iterate once per prisoner
+// 	loop1:
+// 	for (let p = 0; p < 100; p++) {
  
-			// if the card in the drawer that the prisoner chose is his card
-			if (secrets[choice] === p){
-				success = true;
-				break loop2;
-			}
+// 		// whether the prisoner succeedss
+// 		let success = false;
  
-			// the next drawer the prisoner chooses will be the number of the card he has.
-			choice = secrets[choice];
- 
-		}	// each prisoner gets 50 chances
+// 		// the drawer number the prisoner chose
+// 		let choice = p;
  
  
-		if (!success) return false;
+// 		// The prisoner can choose up to 50 cards
+// 		loop2:
+// 		for (let i = 0; i < 50; i++) {
  
-	} // iterate for each prisoner 
+// 			// if the card in the drawer that the prisoner chose is his card
+// 			if (secrets[choice] === p){
+// 				success = true;
+// 				break loop2;
+// 			}
  
-	return true;
-}
+// 			// the next drawer the prisoner chooses will be the number of the card he has.
+// 			choice = secrets[choice];
+ 
+// 		}	// each prisoner gets 50 chances
+ 
+ 
+// 		if (!success) return false;
+ 
+// 	} // iterate for each prisoner 
+ 
+// 	return true;
+// }
  
 const playRandom = () => {
  
@@ -81,18 +81,18 @@ const playRandom = () => {
 	return true;
 }
  
-const execOptimal = () => {
+// const execOptimal = () => {
  
-	let success = 0;
+// 	let success = 0;
  
-	for (let i = 0; i < numPlays; i++) {
+// 	for (let i = 0; i < numPlays; i++) {
  
-		if (playOptimal()) success++;
+// 		if (playOptimal()) success++;
  
-	}
+// 	}
  
-	return 100.0 * success / 100000;
-}
+// 	return 100.0 * success / 100000;
+// }
  
 const execRandom = () => {
  
@@ -106,3 +106,5 @@ const execRandom = () => {
  
 	return 100.0 * success / 100000;
 }
+
+console.log(execRandom());
