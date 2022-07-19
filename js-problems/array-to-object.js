@@ -17,6 +17,6 @@ function findOdd(arr) {
     }
 }
   
-  let myArr = [1,3,1,-2,8,-6,-6,-2,7,6,3,8,7,6,3];
+  let myArr = [1,3,1,-2,8,-6,-6,-2,7,6,3,8,7,6,3,4,1,2,3,6,5,12,34,456];
   
 //   console.log(findOdd(myArr));
