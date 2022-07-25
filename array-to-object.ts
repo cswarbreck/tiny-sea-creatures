@@ -15,11 +15,7 @@
 let findOdd = (arr: number[]) => {
   let count = {};
   for(let i: number = 0; i < arr.length; i++){
-    if(count[arr[i]]){
-      count[arr[i]]++
-    }else{
-      count[arr[i]] =1
-    }
+    count[arr[i]] ? count[arr[i]]++ : count[arr[i]]
   }
   for(let num in count){
     if(count[num] % 2 === 1){
