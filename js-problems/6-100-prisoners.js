@@ -109,47 +109,47 @@
 
 // console.log(execRandom());
 
-// const solve100Prisoners = context => {
-// 	// based on the explanation from the video
-// 	while (!context.isProcessComplete()) {
-// 	  const prisoner = context.getCurrentPrisoner();
-// 	  let slip = prisoner
-// 	  // prisoner tries at 50 drawers
-// 	  for (let i = 0; i < 50; i++) {
-// 		const drawer = context.openDrawer(slip);
-// 		if (!drawer) {
-// 		  return;
-// 		}
-// 		if (drawer.success) {
-// 		  // prisoner found the needed drawer no need to search further
-// 		  break;
-// 		}
-// 		slip = drawer.slipLabel
-// 	  } 
-	
-// 	}
-// 	};
-	
-	const solve100Prisoners = context => {
-	  const { getCurrentPrisoner, openDrawer, isProcessComplete } = context
-	  
-	  while (!isProcessComplete()) {
-		let label = getCurrentPrisoner()
-		
-		for (let i = 0; i < 50; i++) {
-		  const result = openDrawer(label)
-		
-		  if (!result) {
-			break;
-		  }
-		
-		  const { success, slipLabel } = result
-		
-		  if (success) {
-			break;
-		  } else {
-			label = slipLabel
-		  }
+const solve100Prisoners = context => {
+	// based on the explanation from the video
+	while (!context.isProcessComplete()) {
+	  const prisoner = context.getCurrentPrisoner();
+	  let slip = prisoner
+	  // prisoner tries at 50 drawers
+	  for (let i = 0; i < 50; i++) {
+		const drawer = context.openDrawer(slip);
+		if (!drawer) {
+		  return;
 		}
-	  }
+		if (drawer.success) {
+		  // prisoner found the needed drawer no need to search further
+		  break;
+		}
+		slip = drawer.slipLabel
+	  } 
+	
+	}
 	};
+	
+	// const solve100Prisoners = context => {
+	//   const { getCurrentPrisoner, openDrawer, isProcessComplete } = context
+	  
+	//   while (!isProcessComplete()) {
+	// 	let label = getCurrentPrisoner()
+		
+	// 	for (let i = 0; i < 50; i++) {
+	// 	  const result = openDrawer(label)
+		
+	// 	  if (!result) {
+	// 		break;
+	// 	  }
+		
+	// 	  const { success, slipLabel } = result
+		
+	// 	  if (success) {
+	// 		break;
+	// 	  } else {
+	// 		label = slipLabel
+	// 	  }
+	// 	}
+	//   }
+	// };
