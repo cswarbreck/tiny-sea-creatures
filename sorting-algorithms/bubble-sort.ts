@@ -1,3 +1,5 @@
+//Bubble sort
+
 const bubbleSort = (arr: number[]): number[] => {
     const length = arr.length;
 
