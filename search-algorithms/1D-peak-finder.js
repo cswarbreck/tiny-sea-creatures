@@ -1,13 +1,13 @@
 "use strict";
 exports.__esModule = true;
 exports.findPeak = void 0;
-/**
- * Find a peak in a one-dimensional array
- *
- * @export
- * @param {number[]} array
- * @return {(number | null)}
- */
+// /**
+//  * Find a peak in a one-dimensional array
+//  *
+//  * @export
+//  * @param {number[]} array
+//  * @return {(number | null)}
+//  */
 function findPeak(array) {
     // There is no peak in a nullable or undefined array
     if (!array) {
