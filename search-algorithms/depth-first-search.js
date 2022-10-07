@@ -11,7 +11,8 @@ function dfs(start, finish, visited) {
         var destination = destinations_1[_i];
         if (destination === 'BKK') {
             routeFound = true;
-            return console.log("There is a route from ".concat(start, " to ").concat(finish));
+            console.log("There is a route from ".concat(start, " to ").concat(finish));
+            return;
         }
         if (!visited.has(destination)) {
             dfs(destination, visited);
