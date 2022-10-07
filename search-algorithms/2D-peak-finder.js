@@ -1,14 +1,13 @@
 "use strict";
-// import {findPeak as findPeak1d} from './1D-peak-finder';
 exports.__esModule = true;
 exports.findPeak = void 0;
-/**
- *
- *
- * @export
- * @param {number[]} array
- * @return {(number | null)}
- */
+// /**
+//  *
+//  *
+//  * @export
+//  * @param {number[]} array
+//  * @return {(number | null)}
+//  */
 function findPeak(array) {
     // There is no peak in a nullable or undefined array
     if (!array) {
@@ -48,4 +47,5 @@ function findPeak(array) {
     return null;
 }
 exports.findPeak = findPeak;
-console.log(findPeak([[1, 34], [2, 1], [56, 7]]));
+// console.log(findPeak([[1,34],[2,1],[56,7]]));
+console.log(findPeak([[1, 34]]));
