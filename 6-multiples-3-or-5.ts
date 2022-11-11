@@ -4,16 +4,15 @@
 
 // Note: If the number is a multiple of both 3 and 5, only count it once.
 
-export class multiples3or5 {
-    static solution(number: number) {
-      
-      let sum = 0;
-      for (let i = 0; i < number; i++) {
-        if (i % 3 === 0 || i % 5 === 0) {
-          sum += i;
-        }
-      }
-
-return sum;
+const multiples3or5 = (number: number): number => {
+  let initialValue = 0;
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      initialValue += i;
     }
   }
+
+return initialValue;
+}
+
+console.log(multiples3or5(10));
