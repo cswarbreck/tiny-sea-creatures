@@ -1,19 +1,16 @@
-"use strict";
-exports.__esModule = true;
-exports.Graph = void 0;
 /**
  *
  *
  * @export
  * @class Graph
  */
-var Graph = /** @class */ (function () {
+export class Graph {
     /**
      * Creates an instance of Graph.
      * @param {boolean} directed
      * @memberof Graph
      */
-    function Graph(directed) {
+    constructor(directed) {
         this.directed = directed;
         this.verticies = {};
     }
@@ -24,21 +21,21 @@ var Graph = /** @class */ (function () {
      * @return {Graph}
      * @memberof Graph
      */
-    Graph.prototype.addVertex = function (vertex) {
+    addVertex(vertex) {
         this.verticies[vertex.getKey()] = vertex;
         return this;
-    };
+    }
     /**
      * @param {GraphEdge} edge
      * @return {Graph}
      * @memberof Graph
      */
-    Graph.prototype.addEdge = function (edge) {
-        var start = edge.startVertex;
+    addEdge(edge) {
+        const start = edge.startVertex;
         if (!this.getVertex(start)) {
             this.addVertex(edge.startVertex);
         }
-        var end = edge.endVertex;
+        const end = edge.endVertex;
         if (!this.getVertex(end)) {
             this.addVertex(edge.endVertex);
         }
@@ -50,62 +47,59 @@ var Graph = /** @class */ (function () {
             this.getVertex(end).addEdge(edge);
         }
         return this;
-    };
+    }
     /**
      * @param {GraphVertex} vertex
      * @return {GraphVertex}
      * @memberof Graph
      */
-    Graph.prototype.getVertex = function (vertex) {
+    getVertex(vertex) {
         return this.verticies[vertex.getKey()] || null;
-    };
+    }
     /**
      *
      *
      * @return {GraphVertex[]}
      * @memberof Graph
      */
-    Graph.prototype.getVertices = function () {
-        var _this = this;
-        return Object.keys(this.verticies).map(function (k) { return _this.verticies[k]; });
-    };
+    getVertices() {
+        return Object.keys(this.verticies).map((k) => this.verticies[k]);
+    }
     /**
      *
      *
      * @return {GraphEdge[]}
      * @memberof Graph
      */
-    Graph.prototype.getEdges = function () {
-        return [].concat.apply([], this.getVertices().map(function (v) { return v.getEdges(); }));
-    };
+    getEdges() {
+        return [].concat(...this.getVertices().map((v) => v.getEdges()));
+    }
     /**
      * @param {GraphVertex} vertex
      * @return {GraphVertex[]}
      * @memberof Graph
      */
-    Graph.prototype.getNeighbors = function (vertex) {
+    getNeighbors(vertex) {
         return this.getVertex(vertex).getNeighbors();
-    };
+    }
     /**
      * @param {GraphVertex} start
      * @param {GraphVertex} end
      * @return {GraphEdge}
      * @memberof Graph
      */
-    Graph.prototype.findEdge = function (start, end) {
-        var vertex = this.getVertex(start);
+    findEdge(start, end) {
+        const vertex = this.getVertex(start);
         if (!vertex) {
             return null;
         }
         return vertex.findEdge(end);
-    };
+    }
     /**
      * @return {string}
      * @memberof Graph
      */
-    Graph.prototype.toString = function () {
+    toString() {
         return Object.keys(this.verticies).toString();
-    };
-    return Graph;
-}());
-exports.Graph = Graph;
+    }
+}
