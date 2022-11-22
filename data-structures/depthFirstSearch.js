@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.depthFirstSearch = void 0;
 /**
  *
  *
@@ -9,8 +6,7 @@ exports.depthFirstSearch = void 0;
  * @param {GraphVertex} startVertex
  * @param {GraphConfig} config
  */
-function depthFirstSearch(graph, startVertex, config) {
-    if (config === void 0) { config = null; }
+export function depthFirstSearch(graph, startVertex, config = null) {
     if (!graph) {
         return;
     }
@@ -20,7 +16,6 @@ function depthFirstSearch(graph, startVertex, config) {
     config = initConfig(config);
     depthFirstSearchRecursive(graph, startVertex, config);
 }
-exports.depthFirstSearch = depthFirstSearch;
 /**
  *
  *
@@ -30,9 +25,8 @@ exports.depthFirstSearch = depthFirstSearch;
  */
 function depthFirstSearchRecursive(graph, currentVertex, config) {
     config.enterVertex(currentVertex);
-    var neighbors = graph.getNeighbors(currentVertex);
-    for (var _i = 0, neighbors_1 = neighbors; _i < neighbors_1.length; _i++) {
-        var neighbor = neighbors_1[_i];
+    const neighbors = graph.getNeighbors(currentVertex);
+    for (const neighbor of neighbors) {
         if (config.allowEnterVertex(neighbor)) {
             depthFirstSearch(graph, neighbor, config);
         }
@@ -45,8 +39,8 @@ function depthFirstSearchRecursive(graph, currentVertex, config) {
  */
 function initConfig(config) {
     config = config || {};
-    config.enterVertex = config.enterVertex || (function (vertex) { });
-    config.leaveVertex = config.leaveVertex || (function (vertex) { });
+    config.enterVertex = config.enterVertex || ((vertex) => { });
+    config.leaveVertex = config.leaveVertex || ((vertex) => { });
     config.allowEnterVertex = config.allowEnterVertex || isFirstEnter();
     return config;
 }
@@ -55,8 +49,8 @@ function initConfig(config) {
  * @return {boolean}
  */
 function isFirstEnter() {
-    var visited = {};
-    return function (next) {
+    const visited = {};
+    return (next) => {
         if (!visited[next.getKey()]) {
             visited[next.getKey()] = true;
             return true;
