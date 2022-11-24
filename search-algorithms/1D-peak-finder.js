@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.findPeak = void 0;
 // /**
 //  * Find a peak in a one-dimensional array
 //  *
@@ -8,7 +5,7 @@ exports.findPeak = void 0;
 //  * @param {number[]} array
 //  * @return {(number | null)}
 //  */
-function findPeak(array) {
+export function findPeak(array) {
     // There is no peak in a nullable or undefined array
     if (!array) {
         return null;
@@ -22,14 +19,14 @@ function findPeak(array) {
         return array[0];
     }
     // The last element is a peak if it's greater or equal than the second-to-last
-    var len = array.length;
+    const len = array.length;
     if (array[len - 1] >= array[len - 2]) {
         return array[len - 1];
     }
     // The middle element is a peak if it's greater or equal than the neighbors
-    var middle = Math.floor(len / 2);
-    var left = middle - 1;
-    var right = middle + 1;
+    const middle = Math.floor(len / 2);
+    const left = middle - 1;
+    const right = middle + 1;
     if (array[middle] >= array[left] && array[middle] >= array[right]) {
         return array[middle];
     }
@@ -43,5 +40,4 @@ function findPeak(array) {
     }
     return null;
 }
-exports.findPeak = findPeak;
 console.log(findPeak([1, 43, 21, 56, 74, 34, 59, 101, 2]));
