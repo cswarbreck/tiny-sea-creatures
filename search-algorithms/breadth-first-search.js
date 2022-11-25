@@ -1,19 +1,16 @@
-"use strict";
 // Use this search to find  if there is a route from two destinations in the graph
-exports.__esModule = true;
-var graph_1 = require("./graph");
+import adjacencyList from "./graph";
 function bfs(start, finish) {
-    var visited = new Set();
-    var queue = [start];
-    var routeFound = false;
+    const visited = new Set();
+    const queue = [start];
+    let routeFound = false;
     while (queue.length > 0) {
-        var airport = queue.shift(); // mutates the queue
-        var destinations = graph_1["default"].get(airport);
-        for (var _i = 0, destinations_1 = destinations; _i < destinations_1.length; _i++) {
-            var destination = destinations_1[_i];
+        const airport = queue.shift(); // mutates the queue
+        const destinations = adjacencyList.get(airport);
+        for (const destination of destinations) {
             if (destination === finish) {
                 routeFound = true;
-                return console.log("There is a route from ".concat(start, " to ").concat(finish));
+                return console.log(`There is a route from ${start} to ${finish}`);
             }
             if (!visited.has(destination)) {
                 visited.add(destination);
