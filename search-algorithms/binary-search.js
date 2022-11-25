@@ -1,8 +1,8 @@
-var binarySearch = function (nums, target) {
-    var left = 0;
-    var right = nums.length - 1;
+const binarySearch = (nums, target) => {
+    let left = 0;
+    let right = nums.length - 1;
     while (left <= right) {
-        var mid = Math.floor((left + right) / 2);
+        const mid = Math.floor((left + right) / 2);
         if (nums[mid] === target)
             return mid;
         if (target < nums[mid])
