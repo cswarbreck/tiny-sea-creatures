@@ -1,17 +1,13 @@
-"use strict";
-exports.__esModule = true;
-var graph_1 = require("./graph");
-function dfs(start, finish, visited) {
-    if (visited === void 0) { visited = new Set(); }
+import adjacencyList from "./graph";
+function dfs(start, finish, visited = new Set()) {
     console.log(start);
     visited.add(start);
-    var destinations = graph_1["default"].get(start);
-    var routeFound = false;
-    for (var _i = 0, destinations_1 = destinations; _i < destinations_1.length; _i++) {
-        var destination = destinations_1[_i];
+    const destinations = adjacencyList.get(start);
+    let routeFound = false;
+    for (const destination of destinations) {
         if (destination === 'BKK') {
             routeFound = true;
-            console.log("There is a route from ".concat(start, " to ").concat(finish));
+            console.log(`There is a route from ${start} to ${finish}`);
             return;
         }
         if (!visited.has(destination)) {
