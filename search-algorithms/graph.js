@@ -1,9 +1,6 @@
-"use strict";
-exports.__esModule = true;
-exports.adjacencyList = void 0;
 // DATA
-var airports = 'PHX BKK OKC JFK LAX MEX EZE HEL LOS LAP LIM'.split(' ');
-var routes = [
+const airports = 'PHX BKK OKC JFK LAX MEX EZE HEL LOS LAP LIM'.split(' ');
+const routes = [
     ['PHX', 'LAX'],
     ['PHX', 'JFK'],
     ['JFK', 'OKC'],
@@ -16,17 +13,17 @@ var routes = [
     ['LIM', 'BKK'],
 ];
 // The graph
-exports.adjacencyList = new Map();
+export const adjacencyList = new Map();
 // Add node
 function addNode(airport) {
-    exports.adjacencyList.set(airport, []);
+    adjacencyList.set(airport, []);
 }
 // Add edge, undirected
 function addEdge(origin, destination) {
-    exports.adjacencyList.get(origin).push(destination);
-    exports.adjacencyList.get(destination).push(origin);
+    adjacencyList.get(origin).push(destination);
+    adjacencyList.get(destination).push(origin);
 }
 // Create the Graph
 airports.forEach(addNode);
-routes.forEach(function (route) { return addEdge(route[0], route[1]); });
-exports["default"] = exports.adjacencyList;
+routes.forEach(route => addEdge(route[0], route[1]));
+export default adjacencyList;
