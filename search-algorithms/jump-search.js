@@ -1,6 +1,4 @@
-"use strict";
-exports.__esModule = true;
-var Comparator_1 = require("../utils/Comparator");
+import Comparator from '../utils/Comparator';
 /**
  * Jump (block) search implementation.
  *
@@ -9,9 +7,9 @@ var Comparator_1 = require("../utils/Comparator");
  * @param {function(a, b)} [comparatorCallback]
  * @return {number}
  */
-function jumpSearch(sortedArray, seekElement, comparatorCallback) {
-    var comparator = new Comparator_1["default"](comparatorCallback);
-    var arraySize = sortedArray.length;
+export default function jumpSearch(sortedArray, seekElement, comparatorCallback) {
+    const comparator = new Comparator(comparatorCallback);
+    const arraySize = sortedArray.length;
     if (!arraySize) {
         // We can't find anything in empty array.
         return -1;
@@ -20,10 +18,10 @@ function jumpSearch(sortedArray, seekElement, comparatorCallback) {
     // Total number of comparisons in the worst case will be ((arraySize/jumpSize) + jumpSize - 1).
     // The value of the function ((arraySize/jumpSize) + jumpSize - 1) will be minimum
     // when jumpSize = √array.length.
-    var jumpSize = Math.floor(Math.sqrt(arraySize));
+    const jumpSize = Math.floor(Math.sqrt(arraySize));
     // Find the block where the seekElement belong to.
-    var blockStart = 0;
-    var blockEnd = jumpSize;
+    let blockStart = 0;
+    let blockEnd = jumpSize;
     while (comparator.greaterThan(seekElement, sortedArray[Math.min(blockEnd, arraySize) - 1])) {
         // Jump to the next block.
         blockStart = blockEnd;
@@ -34,7 +32,7 @@ function jumpSearch(sortedArray, seekElement, comparatorCallback) {
         }
     }
     // Do linear search for seekElement in subarray starting from blockStart.
-    var currentIndex = blockStart;
+    let currentIndex = blockStart;
     while (currentIndex < Math.min(blockEnd, arraySize)) {
         if (comparator.equal(sortedArray[currentIndex], seekElement)) {
             return currentIndex;
@@ -43,4 +41,3 @@ function jumpSearch(sortedArray, seekElement, comparatorCallback) {
     }
     return -1;
 }
-exports["default"] = jumpSearch;
