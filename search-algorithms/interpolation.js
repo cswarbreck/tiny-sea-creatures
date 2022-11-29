@@ -1,5 +1,3 @@
-"use strict";
-exports.__esModule = true;
 /**
  * Interpolation search implementation.
  *
@@ -7,13 +5,13 @@ exports.__esModule = true;
  * @param {*} seekElement
  * @return {number}
  */
-function interpolationSearch(sortedArray, seekElement) {
-    var leftIndex = 0;
-    var rightIndex = sortedArray.length - 1;
+export default function interpolationSearch(sortedArray, seekElement) {
+    let leftIndex = 0;
+    let rightIndex = sortedArray.length - 1;
     while (leftIndex <= rightIndex) {
-        var rangeDelta = sortedArray[rightIndex] - sortedArray[leftIndex];
-        var indexDelta = rightIndex - leftIndex;
-        var valueDelta = seekElement - sortedArray[leftIndex];
+        const rangeDelta = sortedArray[rightIndex] - sortedArray[leftIndex];
+        const indexDelta = rightIndex - leftIndex;
+        const valueDelta = seekElement - sortedArray[leftIndex];
         // If valueDelta is less then zero it means that there is no seek element
         // exists in array since the lowest element from the range is already higher
         // then seek element.
@@ -29,7 +27,7 @@ function interpolationSearch(sortedArray, seekElement) {
             return sortedArray[leftIndex] === seekElement ? leftIndex : -1;
         }
         // Do interpolation of the middle index.
-        var middleIndex = leftIndex + Math.floor(valueDelta * indexDelta / rangeDelta);
+        const middleIndex = leftIndex + Math.floor(valueDelta * indexDelta / rangeDelta);
         // If we've found the element just return its position.
         if (sortedArray[middleIndex] === seekElement) {
             return middleIndex;
@@ -46,4 +44,3 @@ function interpolationSearch(sortedArray, seekElement) {
     }
     return -1;
 }
-exports["default"] = interpolationSearch;
