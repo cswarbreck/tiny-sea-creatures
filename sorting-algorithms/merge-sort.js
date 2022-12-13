@@ -1,9 +1,6 @@
-"use strict";
-exports.__esModule = true;
-function MergeSort(items) {
+export default function MergeSort(items) {
     return divide(items);
 }
-exports["default"] = MergeSort;
 function divide(items) {
     var halfLength = Math.ceil(items.length / 2);
     var low = items.slice(0, halfLength);
