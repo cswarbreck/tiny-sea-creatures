@@ -56,3 +56,7 @@ function stockList(listOfArt, listOfCat){
   
 //   console.log(listOfArt, listOfCat)
 }  
+
+// ART = ["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"]
+// CAT = ["A", "B", "C", "D"]
+// res = "(A : 0) - (B : 1290) - (C : 515) - (D : 600)"
